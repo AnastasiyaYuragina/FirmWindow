@@ -12,9 +12,11 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 
 
 public class MainFrame extends JFrame{
@@ -373,6 +375,18 @@ public class MainFrame extends JFrame{
 			}
 		});
 		getContentPane().add(btnShowSumOn);
+		
+		JButton btnSort = new JButton("Sort");
+		btnSort.setBounds(300, 476, 89, 23);
+		getContentPane().add(btnSort);
+		btnSort.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				onClickSortFirm();
+				
+			}
+		});
 
 	}
 	
@@ -503,6 +517,19 @@ public class MainFrame extends JFrame{
 			    string,
 			    "Error",
 			    JOptionPane.ERROR_MESSAGE);
+	}
+	
+	private void onClickSortFirm() {
+		SortFirmDialog frame = new SortFirmDialog(firm);
+		frame.firm = firm;
+		frame.setVisible(true);
+		// Every JInternalFrame must be added to content pane using JDesktopPane
+		this.getContentPane().add(frame);
+//		try {
+//			frame.setSelected(true);
+//		} catch (java.beans.PropertyVetoException e) {
+//		}
+		frame.toFront();
 	}
 	
 //	private void loadFirmFromFile(Firm firm) {
