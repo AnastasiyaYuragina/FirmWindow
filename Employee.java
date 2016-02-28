@@ -66,7 +66,7 @@ public class Employee implements Comparable<Employee>{
 
 	@Override
 	public String toString() {
-		String stringEmployee = getClass().toString() + " " + name + " " + surname + " " + patronymic + " " + salary + " " 
+		String stringEmployee = name + " " + surname + " " + patronymic + " " + salary + " " 
 				+ bankAccount + " " + sex + " " + department.getNameDepartment() + "\r\n"; 
 		return stringEmployee;
 	}

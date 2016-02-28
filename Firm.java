@@ -184,15 +184,19 @@ public class Firm {
 	}
 	
 	public ArrayList<Employee> getAllEmployeesOrderedBySalary() {
-		ArrayList<Employee> copy = new ArrayList<Employee>(listEmployee);
-		Collections.sort(copy, Employee.Comparators.salaryCompare);
-		return copy;
+		return getAllEmployeesSorted(Employee.Comparators.salaryCompare);
+//		
+//		ArrayList<Employee> copy = new ArrayList<Employee>(listEmployee);
+//		Collections.sort(copy, Employee.Comparators.salaryCompare);
+//		return copy;
 	}
 	
 	public ArrayList<Employee> getAllEmployeesSortedBySName() {
-		ArrayList<Employee> copy = new ArrayList<Employee>(listEmployee);
-		Collections.sort(copy, Employee.Comparators.surnameCompare);
-		return copy;
+		return getAllEmployeesSorted(Employee.SORT_BY_SURNAME);
+//		
+//		ArrayList<Employee> copy = new ArrayList<Employee>(listEmployee);
+//		Collections.sort(copy, Employee.Comparators.surnameCompare);
+//		return copy;
 	}
 	
 	public void sellFor10() {

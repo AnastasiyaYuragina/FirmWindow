@@ -32,7 +32,7 @@ public class MainFrame extends JFrame{
 //	private JTextField textNameAnother;
 //	private JTextField textSurnameAnother;
 //	private JTextField textPatronymicAnother;
-	private JTextPane textPane;
+	public JTextPane textPane;
 	private JRadioButton rdbtnMan;
 	private JRadioButton rdbtnWoman;
 	private JComboBox<String> comboBoxDepartment;
@@ -422,12 +422,11 @@ public class MainFrame extends JFrame{
 		displayListEmployee(firm.getAllEmployees());
 	}
 	
-	private void displayListEmployee(ArrayList<Employee> list) {
-		ArrayList<Employee> newlist = list;
+	public void displayListEmployee(ArrayList<Employee> list) {
 		String str = ""; 
-		for (Employee employee : newlist) {
-			str = str + employee.toString();
-		}	
+		for (Employee employee : list) {
+			str = str + employee.getClass().getSimpleName() + " " + employee.toString();
+		}
 		textPane.setText(str);
 	}
 	
@@ -525,10 +524,6 @@ public class MainFrame extends JFrame{
 		frame.setVisible(true);
 		// Every JInternalFrame must be added to content pane using JDesktopPane
 		this.getContentPane().add(frame);
-//		try {
-//			frame.setSelected(true);
-//		} catch (java.beans.PropertyVetoException e) {
-//		}
 		frame.toFront();
 	}
 	
