@@ -159,7 +159,7 @@ public class Firm {
 		for (Department department : listDepartment) {
 			if(departmentName == department.getNameDepartment()) {
 				ArrayList<Employee> copy = new ArrayList<Employee>(department.getAllEmployees());
-				Collections.sort(copy, Employee.Comparators.salaryCompare);
+				Collections.sort(copy, Employee.SORT_BY_SALARY);
 				return copy;
 			}
 		}
@@ -170,7 +170,7 @@ public class Firm {
 		for (Department department : listDepartment) {
 			if(departmentName == department.getNameDepartment()) {
 				ArrayList<Employee> copy = new ArrayList<Employee>(department.getAllEmployees());
-				Collections.sort(copy, Employee.Comparators.surnameCompare);
+				Collections.sort(copy, Employee.SORT_BY_SURNAME);
 				return copy;
 			}
 		}
@@ -184,7 +184,7 @@ public class Firm {
 	}
 	
 	public ArrayList<Employee> getAllEmployeesOrderedBySalary() {
-		return getAllEmployeesSorted(Employee.Comparators.salaryCompare);
+		return getAllEmployeesSorted(Employee.SORT_BY_SALARY);
 //		
 //		ArrayList<Employee> copy = new ArrayList<Employee>(listEmployee);
 //		Collections.sort(copy, Employee.Comparators.salaryCompare);

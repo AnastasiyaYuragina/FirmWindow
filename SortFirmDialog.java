@@ -3,21 +3,19 @@ package lesson6.newFirm;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTextPane;
 
 public class SortFirmDialog extends JFrame{
+	private static final long serialVersionUID = 1L;
 	Firm firm;
-	public Comparator<Employee> comparator = null;
+	MainFrame mainFrame = new MainFrame();
+	Map<String, Comparator<Employee>> map = new HashMap<String, Comparator<Employee>>();
 	Comparator<Employee> comboBox1 = null;
 	Comparator<Employee> comboBox2 = null;
 	Comparator<Employee> comboBox3 = null;
@@ -28,11 +26,8 @@ public class SortFirmDialog extends JFrame{
 	JComboBox<String> comboBoxSort3 = new JComboBox<String>();
 	JComboBox<String> comboBoxSort4 = new JComboBox<String>();
 	JComboBox<String> comboBoxSort5 = new JComboBox<String>();
-	MainFrame mainFrame = new MainFrame();
-
-	Map<String, Comparator<Employee>> map = new HashMap<String, Comparator<Employee>>();
-	//	ArrayList<Comparator<Employee>> list = new ArrayList<Comparator<Employee>>();
-
+	public Comparator<Employee> comparator = null;
+	
 	public SortFirmDialog(Firm firm) {
 		super("IFrame #");
 		this.firm = firm;
@@ -56,19 +51,7 @@ public class SortFirmDialog extends JFrame{
 		map.put("bank account reversed", Employee.SORT_BY_BANK_ACCOUNT_REVERSED);
 		map.put("sex", Employee.SORT_BY_SEX);
 		map.put("sex reversed", Employee.SORT_BY_SEX_REVERSED);
-		//		list.add(null);
-		//		list.add(Employee.SORT_BY_NAME);
-		//		list.add(Employee.SORT_BY_NAME_REVERSED);
-		//		list.add(Employee.SORT_BY_SURNAME);
-		//		list.add(Employee.SORT_BY_SURNAME_REVERSED);
-		//		list.add(Employee.SORT_BY_PATRONYMIC);
-		//		list.add(Employee.SORT_BY_PATRONYMIC_REVERSED);
-		//		list.add(Employee.SORT_BY_SALARY);
-		//		list.add(Employee.SORT_BY_SALARY_REVERSED);
-		//		list.add(Employee.SORT_BY_BANK_ACCOUNT);
-		//		list.add(Employee.SORT_BY_BANK_ACCOUNT_REVERSED);
-		//		list.add(Employee.SORT_BY_SEX);
-		//		list.add(Employee.SORT_BY_SEX_REVERSED);
+
 		comboBoxSort1.setBounds(20, 10, 250, 25);
 		comboBoxSort2.setBounds(20, 40, 250, 25);
 		comboBoxSort3.setBounds(20, 70, 250, 25);
@@ -161,7 +144,6 @@ public class SortFirmDialog extends JFrame{
 			}
 		});
 		getContentPane().add(btnSort);	
-
 	}
 
 	private void onClickSort() {

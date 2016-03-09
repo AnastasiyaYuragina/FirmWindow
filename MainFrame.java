@@ -522,7 +522,6 @@ public class MainFrame extends JFrame{
 		SortFirmDialog frame = new SortFirmDialog(firm);
 		frame.firm = firm;
 		frame.setVisible(true);
-		// Every JInternalFrame must be added to content pane using JDesktopPane
 		this.getContentPane().add(frame);
 		frame.toFront();
 	}
